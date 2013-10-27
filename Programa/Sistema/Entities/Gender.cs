@@ -1,5 +1,4 @@
-﻿
-#region References
+﻿#region References
 
 using Basis.BaseEntity;
 using System;

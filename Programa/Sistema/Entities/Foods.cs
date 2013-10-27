@@ -1,6 +1,4 @@
-﻿
-
-#region References
+﻿#region References
 
 using Basis.BaseEntity;
 using System;
@@ -15,12 +13,16 @@ namespace Entities
 
         public virtual Double Weight { get; set; }
 
+        public virtual Double Carbohydrates { get; set; }
+
         public virtual Double Protein { get; set; }
+
+        public virtual Double Fat { get; set; }
 
         public virtual Double Fiber { get; set; }
 
+        public virtual Double Sodium { get; set; }
+
         public virtual Gender Gender { get; set; }
-
-
     }
 }
