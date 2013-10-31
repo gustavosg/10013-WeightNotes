@@ -7,7 +7,7 @@ using System;
 
 namespace Entities
 {
-    public class Gender : BaseEntity
+    public class MealGender : BaseEntity
     {
         public String Name { get; set; }
     }

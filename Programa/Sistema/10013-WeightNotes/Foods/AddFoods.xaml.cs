@@ -11,22 +11,22 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace _10013_WeightWatchersNotes
+namespace _10013_WeightWatchersNotes.Foods
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class AddFoods : PhoneApplicationPage
     {
-        // Constructor
-        public MainPage()
+        public AddFoods()
         {
             InitializeComponent();
+
+            String[] list = new String[]{
+             "", 
+             "1", 
+             "2"
+            };
+
+            listBox1.ItemsSource = list;
+            
         }
-
-        private void ApplicationBarMenuItem_Click(object sender, EventArgs e)
-        {
-
-            NavigationService.Navigate(new Uri("/Foods/AddFoods.xaml", UriKind.Relative));
-        }
-
-
     }
 }

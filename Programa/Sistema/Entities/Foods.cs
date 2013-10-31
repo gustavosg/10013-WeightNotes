@@ -23,6 +23,8 @@ namespace Entities
 
         public virtual Double Sodium { get; set; }
 
-        public virtual Gender Gender { get; set; }
+        public virtual MealGender Gender { get; set; }
+
+        public virtual Int16 Points { get; set; }
     }
 }
