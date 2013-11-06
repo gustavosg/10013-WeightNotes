@@ -17,7 +17,7 @@ using Basis.BaseEntity;
 
 #endregion
 
-namespace Entities
+namespace _10013_WeightWatchersNotes.Model
 {
     public class Person : BaseEntity
     {

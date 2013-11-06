@@ -5,7 +5,7 @@ using System;
 
 #endregion
 
-namespace Entities
+namespace _10013_WeightWatchersNotes.Model
 {
     public class MealGender : BaseEntity
     {

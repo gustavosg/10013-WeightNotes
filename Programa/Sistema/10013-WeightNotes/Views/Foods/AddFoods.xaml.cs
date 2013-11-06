@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace _10013_WeightWatchersNotes.Foods
+namespace _10013_WeightWatchersNotes
 {
     public partial class AddFoods : PhoneApplicationPage
     {
@@ -25,7 +25,7 @@ namespace _10013_WeightWatchersNotes.Foods
              "2"
             };
 
-            listBox1.ItemsSource = list;
+            listPicker1.ItemsSource = list;
             
         }
     }

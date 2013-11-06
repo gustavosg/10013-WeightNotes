@@ -62,7 +62,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Foods\AddFoods.xaml.cs">
+    <Compile Include="Model\Foods.cs" />
+    <Compile Include="Model\MealGender.cs" />
+    <Compile Include="Model\Meals.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="ViewModels\Food\AddFoodsViewModel.cs" />
+    <Compile Include="ViewModels\Meals\MealsViewModel.cs" />
+    <Compile Include="Views\Foods\AddFoods.xaml.cs">
       <DependentUpon>AddFoods.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
@@ -75,7 +81,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Foods\AddFoods.xaml">
+    <Page Include="Views\Foods\AddFoods.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,8 +104,18 @@
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Meals\" />
-    <Folder Include="Person\" />
+    <Folder Include="Views\Meals\" />
+    <Folder Include="Views\Person\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Basis\BaseEntity\BaseEntity.csproj">
+      <Project>{49F81597-6FCB-44C5-ABBD-BA0203FD22C7}</Project>
+      <Name>BaseEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModelHelpers\ViewModelHelpers.csproj">
+      <Project>{80A418A5-AF73-47E0-A41E-9BF673F84C56}</Project>
+      <Name>ViewModelHelpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

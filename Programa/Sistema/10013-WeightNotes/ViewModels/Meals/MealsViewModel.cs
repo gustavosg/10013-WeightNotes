@@ -8,13 +8,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.ComponentModel;
-using ViewModelHelpers;
 
-namespace Basis.BaseEntity
+namespace _10013_WeightWatchersNotes.ViewModels
 {
-    public class BaseEntity : PropertyChangedHelper
+    public class MealsViewModel
     {
-        public Int16 Id { get; set; }
+
     }
 }
