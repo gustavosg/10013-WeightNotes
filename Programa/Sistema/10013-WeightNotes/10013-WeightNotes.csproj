@@ -22,7 +22,7 @@
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>_10013_WeightWatchersNotes.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>_10013_WeightWatchersNotes.App</SilverlightAppEntry>
+    <SilverlightAppEntry>WeightNotes.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
   </PropertyGroup>
@@ -68,9 +68,6 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModels\Food\AddFoodsViewModel.cs" />
     <Compile Include="ViewModels\Meals\MealsViewModel.cs" />
-    <Compile Include="Views\Foods\AddFoods.xaml.cs">
-      <DependentUpon>AddFoods.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -81,10 +78,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Views\Foods\AddFoods.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,9 +94,12 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\FoodButton128x128.png" />
+    <Resource Include="Images\FoodButton.jpg" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Foods\" />
     <Folder Include="Views\Meals\" />
     <Folder Include="Views\Person\" />
   </ItemGroup>

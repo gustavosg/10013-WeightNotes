@@ -8,10 +8,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using _10013_WeightWatchersNotes.Model;
+using WeightNotes.Model;
 using ViewModelHelpers;
 
-namespace _10013_WeightWatchersNotes
+namespace WeightNotes
 {
     public class AddFoodsViewModel
     {

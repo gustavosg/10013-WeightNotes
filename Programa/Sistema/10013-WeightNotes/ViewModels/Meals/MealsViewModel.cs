@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace _10013_WeightWatchersNotes.ViewModels
+namespace WeightNotes.ViewModels
 {
     public class MealsViewModel
     {

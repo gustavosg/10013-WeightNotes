@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.0">
-  <App xmlns="" ProductID="{e1007061-b3f7-4cc5-9a81-5705bc658945}" Title="_10013_WeightWatchersNotes" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="_10013_WeightWatchersNotes author" Description="Sample description" Publisher="_10013_WeightWatchersNotes">
+  <App xmlns="" ProductID="{e1007061-b3f7-4cc5-9a81-5705bc658945}" Title="WeightNotes" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="WeightNotes author" Description="Sample description" Publisher="WeightNotes">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES"/>
@@ -20,11 +20,11 @@
       <DefaultTask  Name ="_default" NavigationPage="MainPage.xaml"/>
     </Tasks>
     <Tokens>
-      <PrimaryToken TokenID="_10013_WeightWatchersNotesToken" TaskName="_default">
+      <PrimaryToken TokenID="WeightNotesToken" TaskName="_default">
         <TemplateType5>
           <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
           <Count>0</Count>
-          <Title>_10013_WeightWatchersNotes</Title>
+          <Title>WeightNotes</Title>
         </TemplateType5>
       </PrimaryToken>
     </Tokens>

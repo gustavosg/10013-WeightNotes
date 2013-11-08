@@ -1,5 +1,4 @@
-﻿<Application 
-    x:Class="_10013_WeightWatchersNotes.App"
+﻿<Application x:Class="WeightNotes.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
