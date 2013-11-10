@@ -94,8 +94,9 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\FoodButton128x128.png" />
-    <Resource Include="Images\FoodButton.jpg" />
+    <Resource Include="Images\FoodsButton.png" />
+    <Resource Include="Images\MealButton.png" />
+    <Resource Include="Images\Cadastro.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
