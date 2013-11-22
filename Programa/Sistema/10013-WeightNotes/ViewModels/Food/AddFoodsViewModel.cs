@@ -11,11 +11,10 @@ using System.Windows.Shapes;
 using WeightNotes.Model;
 using ViewModelHelpers;
 
-namespace WeightNotes
+namespace WeightNotes.ViewModels
 {
-    public class AddFoodsViewModel
+    public class AddFoodsViewModel : ViewModelBasePageEdit
     {
-
         #region Fields
 
         #endregion
@@ -40,14 +39,37 @@ namespace WeightNotes
         public Foods FoodData
         {
             get { return foodData; }
-            set { foodData = value;
-            
+            set
+            {
+                foodData = value;
+
             }
         }
 
         #endregion
 
+        #region Commands
+
+        private RelayCommand exibir;
+        public RelayCommand Exibir
+        {
+            get
+            {
+                if (exibir == null)
+                    exibir = new RelayCommand(param => DoExibir());
+                return exibir;
+            }
+        }
+
+
+        #endregion
+
         #region Methods
+
+        void DoExibir()
+        {
+            MessageBox.Show("Ola!");
+        }
 
         #endregion
 

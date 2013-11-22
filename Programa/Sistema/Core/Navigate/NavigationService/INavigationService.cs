@@ -8,13 +8,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.ComponentModel;
-using ViewModelHelpers;
 
-namespace Basis.BaseEntity
+namespace NavigationService
 {
-    public class BaseEntity : NotifyPropertyChanged
+    public class INavigationService 
     {
-        public Int16 Id { get; set; }
+
     }
 }

@@ -52,7 +52,8 @@
 
             <Button VerticalAlignment="Stretch"
                     HorizontalAlignment="Stretch"
-                    BorderBrush="{x:Null}">
+                    BorderBrush="{x:Null}"
+                    >
                 <StackPanel>
                     <Image Source="Images\FoodsButton.png"
                            Stretch="Fill" />
@@ -64,6 +65,8 @@
             <Button Grid.Column="1"
                     VerticalAlignment="Stretch"
                     HorizontalAlignment="Stretch"
+                    Click="Button_Click"
+                    
                     BorderBrush="{x:Null}">
                 <StackPanel>
                     <Image Source="Images\MealButton.png"
