@@ -11,11 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace _10013_WeightWatchersNotes.Views.Person
+namespace WeightNotes.Views.Food
 {
-    public partial class PersonView : PhoneApplicationPage
+    public partial class FoodsView : PhoneApplicationPage
     {
-        public PersonView()
+        public FoodsView()
         {
             InitializeComponent();
         }

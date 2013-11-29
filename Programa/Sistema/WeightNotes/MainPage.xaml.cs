@@ -15,28 +15,16 @@ namespace WeightNotes
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        #region Fields
-
-        
-        #endregion
-
         // Constructor
         public MainPage()
         {
-            
-
             InitializeComponent();
         }
 
-        private void ApplicationBarMenuItem_Click(object sender, RoutedEventArgs e)
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/Food/AddFoodsView.xaml", UriKind.RelativeOrAbsolute));
-        }
+            NavigationService.Navigate(new Uri("/Views/Food/FoodsView.xaml", UriKind.Relative));
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Views/Food/AddFoodsView.xaml", UriKind.RelativeOrAbsolute));
         }
-
     }
 }

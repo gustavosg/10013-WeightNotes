@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI", "GUI", "{259895DB-CE1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVVM", "MVVM", "{D980EEA8-67AD-4093-90F1-7CB572B34C00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10013-WeightNotes", "10013-WeightNotes\10013-WeightNotes.csproj", "{4B43C22E-60B0-44EF-B746-312AF925C762}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseEntity", "Basis\BaseEntity\BaseEntity.csproj", "{49F81597-6FCB-44C5-ABBD-BA0203FD22C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelHelpers", "ViewModelHelpers\ViewModelHelpers.csproj", "{80A418A5-AF73-47E0-A41E-9BF673F84C56}"
@@ -21,18 +19,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Navigate", "Navigate", "{59
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationService", "Core\Navigate\NavigationService\NavigationService.csproj", "{9930AA43-CD73-4419-A263-391C62E9F168}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeightNotes", "WeightNotes\WeightNotes.csproj", "{3B1FE719-ABC6-4DB6-8203-AD0E0A6295C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4B43C22E-60B0-44EF-B746-312AF925C762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B43C22E-60B0-44EF-B746-312AF925C762}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B43C22E-60B0-44EF-B746-312AF925C762}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{4B43C22E-60B0-44EF-B746-312AF925C762}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B43C22E-60B0-44EF-B746-312AF925C762}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B43C22E-60B0-44EF-B746-312AF925C762}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{49F81597-6FCB-44C5-ABBD-BA0203FD22C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{49F81597-6FCB-44C5-ABBD-BA0203FD22C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49F81597-6FCB-44C5-ABBD-BA0203FD22C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,12 +39,18 @@ Global
 		{9930AA43-CD73-4419-A263-391C62E9F168}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9930AA43-CD73-4419-A263-391C62E9F168}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9930AA43-CD73-4419-A263-391C62E9F168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1FE719-ABC6-4DB6-8203-AD0E0A6295C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1FE719-ABC6-4DB6-8203-AD0E0A6295C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1FE719-ABC6-4DB6-8203-AD0E0A6295C5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3B1FE719-ABC6-4DB6-8203-AD0E0A6295C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1FE719-ABC6-4DB6-8203-AD0E0A6295C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1FE719-ABC6-4DB6-8203-AD0E0A6295C5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4B43C22E-60B0-44EF-B746-312AF925C762} = {C81EA3A8-F88D-4888-B46F-1A374E962D4F}
+		{3B1FE719-ABC6-4DB6-8203-AD0E0A6295C5} = {C81EA3A8-F88D-4888-B46F-1A374E962D4F}
 		{259895DB-CE13-45EA-84D8-BE5F7EB33092} = {D195ACD0-4BF7-4DEE-B205-08AE8467CFD8}
 		{596AEFF6-6432-4365-9A58-873D82EC38B1} = {D195ACD0-4BF7-4DEE-B205-08AE8467CFD8}
 		{49F81597-6FCB-44C5-ABBD-BA0203FD22C7} = {CEAF8750-C755-4606-AE14-9EE53DB06F54}
