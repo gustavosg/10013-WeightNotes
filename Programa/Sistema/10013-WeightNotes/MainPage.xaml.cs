@@ -28,14 +28,14 @@ namespace WeightNotes
             InitializeComponent();
         }
 
-        private void ApplicationBarMenuItem_Click(object sender, EventArgs e)
+        private void ApplicationBarMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/Food/AddFoodsView.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/Food/AddFoodsView.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/Food/AddFoodsView.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/Food/AddFoodsView.xaml", UriKind.RelativeOrAbsolute));
         }
 
     }
