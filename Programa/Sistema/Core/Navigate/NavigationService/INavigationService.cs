@@ -1,6 +1,7 @@
 ﻿#region References
 
 using System;
+using System.Collections.Generic;
 
 #endregion
 
@@ -10,7 +11,8 @@ namespace NavigationService
     {
         void GoBack();
 
-        void Navigate<TypeOfViewModel>(String page);
+        void Navigate(String page);
 
+        void Navigate(String page, IDictionary<String, String> parameters);
     }
 }
