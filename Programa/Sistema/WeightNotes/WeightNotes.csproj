@@ -50,6 +50,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -66,6 +69,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Food\FoodsViewModel.cs" />
     <Compile Include="Views\Food\FoodsView.xaml.cs">
       <DependentUpon>FoodsView.xaml</DependentUpon>
     </Compile>
@@ -85,6 +89,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
@@ -98,7 +103,13 @@
     <Content Include="Images\Cadastro.png" />
     <Content Include="Images\FoodsButton.png" />
     <Content Include="Images\MealButton.png" />
+    <Content Include="README_FIRST.txt" />
     <Content Include="SplashScreenImage.jpg" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Navigate\NavigationService\NavigationService.csproj">
@@ -106,6 +117,7 @@
       <Name>NavigationService</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

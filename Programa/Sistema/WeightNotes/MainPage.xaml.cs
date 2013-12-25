@@ -21,7 +21,7 @@ namespace WeightNotes
             InitializeComponent();
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        private void FoodsPageClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/Food/FoodsView.xaml", UriKind.Relative));
 
