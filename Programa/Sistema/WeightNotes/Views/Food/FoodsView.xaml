@@ -14,54 +14,219 @@
                             FontFamily="{StaticResource PhoneFontFamilyNormal}"
                             FontSize="{StaticResource PhoneFontSizeNormal}"
                             Foreground="{StaticResource PhoneForegroundBrush}"
-                            SupportedOrientations="Portrait"
+                            SupportedOrientations="PortraitOrLandscape"
                             Orientation="Portrait"
                             shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.DataContext>
         <vm:FoodsViewModel />
     </phone:PhoneApplicationPage.DataContext>
     <phone:PhoneApplicationPage.Resources>
-        <Style x:Key="TextBlockItemStyle"
-               TargetType="TextBlock">
+        <Style TargetType="TextBlock">
             <Setter Property="FontSize"
-                    Value="25" />
+                    Value="21" />
             <Setter Property="FontFamily"
                     Value="Arial" />
             <Setter Property="HorizontalAlignment"
                     Value="Left" />
             <Setter Property="VerticalAlignment"
                     Value="Center" />
+            <Setter Property="Foreground"
+                    Value="Gray" />
         </Style>
+
+        <Style TargetType="TextBox"
+               x:Key="RightAlignStyle">
+            <Setter Property="TextAlignment"
+                    Value="Right" />
+        </Style>
+
+        <DataTemplate x:Name="PickerItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Border Background="Aquamarine"
+                        Width="34"
+                        Height="34">
+                    <TextBlock Text="{Binding ShortName}"
+                               FontSize="16"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+                <TextBlock Text="{Binding Name}"
+                           Margin="12 0 0 0" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PickerFullModeItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Border Background="Aquamarine"
+                        Width="34"
+                        Height="34">
+                    <TextBlock Text="{Binding ShortName}" />
+                </Border>
+                <TextBlock Text="{Binding Name}"
+                           FontFamily="{StaticResource PhoneFontFamilyLight}" />
+
+            </StackPanel>
+        </DataTemplate>
+
     </phone:PhoneApplicationPage.Resources>
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot"
           Background="Transparent">
 
         <!--Pivot Control-->
-        <controls:Pivot Title="MY APPLICATION">
+        <controls:Pivot Title="WEIGHTNOTES">
             <!--Pivot item one-->
             <controls:PivotItem Header="Cadastro">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Nome:"
-                               Style="{StaticResource TextBlockItemStyle}"
+                    <TextBlock Text="Nome"
                                HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
+                               VerticalAlignment="Top"
                                Grid.Row="0" />
-                    <TextBox HorizontalAlignment="Right"
+                    <TextBox HorizontalAlignment="Stretch"
                              VerticalAlignment="Top"
-                             Width="350"
-                             Grid.Row="0" />
-                    <TextBlock Text="Gênero:"
+                             Margin="0, 20,0,0"
+                             Grid.Row="0"
+                             Text="{Binding Name}" />
+                    <TextBlock Text="Gênero"
                                Grid.Row="1"
-                               Style="{StaticResource TextBlockItemStyle}" />
-                    <silverlightToolkit:ListPicker ItemTemplate="{Binding Generos}"
-                                                   Grid.Row="1"
-                                                   HorizontalAlignment="Right"
-                                                   Width="350" />
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top" />
+                    <silverlightToolkit:ListPicker Grid.Row="1"
+                                                   ItemsSource="{Binding Gender}"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalAlignment="Stretch"
+                                                   Margin="10, 20, 10, 10" />
+                    <Grid Grid.Row="2"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Margin="0,0,10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Peso"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top" />
+                        <TextBox Grid.Column="0"
+                                 Margin="0,20,0,0"
+                                 Text="{Binding Weight}"
+                                 Style="{StaticResource RightAlignStyle}"
+                                 VerticalAlignment="Top"
+                                 HorizontalAlignment="Stretch" />
+                        <TextBlock Text="Tipo de Medição"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Top"
+                                   Margin="0,0,0,0" />
+                        <silverlightToolkit:ListPicker ItemsSource="{Binding WeightTypeList}"
+                                                       FullModeItemTemplate="{StaticResource PickerFullModeItemTemplate}"
+                                                       ItemTemplate="{StaticResource PickerItemTemplate}"
+                                                       Grid.Column="1"
+                                                       Margin="17,20,0,0"
+                                                       VerticalAlignment="Top"
+                                                       HorizontalAlignment="Stretch" />
+                    </Grid>
+
+                    <Grid Grid.Row="3"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Margin="0,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Carboidratos"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Grid.Row="3" />
+                        <TextBox Grid.Row="3"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Top"
+                                 Margin="0,20,0,0"
+                                 Text="{Binding Carbohydrates}"
+                                 Style="{StaticResource RightAlignStyle}" />
+                        <TextBlock Text="Proteínas"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top" />
+                        <TextBox Grid.Column="1"
+                                 Margin="0,20,0,0"
+                                 HorizontalAlignment="Stretch"
+                                 Style="{StaticResource RightAlignStyle}"
+                                 Text="{Binding Protein}"/>
+                    </Grid>
+
+
+                    <Grid Grid.Row="4"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Margin="0,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Gordura"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Grid.Row="3" />
+                        <TextBox Grid.Row="3"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Top"
+                                 Margin="0,20,0,0"
+                                 Text="{Binding Fat}"
+                                 Style="{StaticResource RightAlignStyle}" />
+                        <TextBlock Text="Fibras"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top" />
+                        <TextBox Grid.Column="1"
+                                 Margin="0,20,0,0"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Top"
+                                 Style="{StaticResource RightAlignStyle}"
+                                 Text="{Binding Fiber}" />
+                    </Grid>
+
+                    <Grid Grid.Row="5"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Margin="0,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Sódio"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Grid.Row="3" />
+                        <TextBox Grid.Row="3"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Top"
+                                 Margin="0,20,0,0"
+                                 Text="{Binding Sodium}"
+                                 Style="{StaticResource RightAlignStyle}" />
+                        <TextBlock Text="Valor Energético"
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top" />
+                        <TextBox Grid.Column="1"
+                                 Margin="0,20,0,0"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Top"
+                                 Style="{StaticResource RightAlignStyle}"
+                                 Text="{Binding EnergyValue}" />
+                    </Grid>
+
 
                 </Grid>
             </controls:PivotItem>

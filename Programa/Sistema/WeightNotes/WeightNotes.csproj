@@ -116,6 +116,10 @@
       <Project>{9930AA43-CD73-4419-A263-391C62E9F168}</Project>
       <Name>NavigationService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ViewModelHelpers\ViewModelHelpers.csproj">
+      <Project>{80A418A5-AF73-47E0-A41E-9BF673F84C56}</Project>
+      <Name>ViewModelHelpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
