@@ -71,7 +71,7 @@
             <Button Grid.Row="1"
                     Grid.Column="0">
                 <StackPanel>
-                    <Image Source="/Images/Cadastro.png" />
+                    <Image Source="/Images/Cadastro.png" Height="130" />
                     <TextBlock Text="Cadastro"
                                HorizontalAlignment="Center" />
                 </StackPanel>

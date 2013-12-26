@@ -51,10 +51,15 @@ namespace WeightNotes.ViewModels
             get
             {
                 return new String[]{
+                    "Doces",
+                    "Laticínios",
+                    "Ovos",
+                    "Óleos Vegetais",
+                    "Sementes e Castanhas",
                     "Frutas",
                     "Verduras",
-                    "Legumes", 
-                    
+                    "Grãos (Pães, Arroz, Macarrão, etc)",
+                    "Legumes e soja", 
                 };
             }
         }
@@ -89,6 +94,7 @@ namespace WeightNotes.ViewModels
 
                 IList<WeightType> list = new List<WeightType>();
 
+                list.Add(new WeightType { });
                 list.Add(new WeightType { Name = "Gramas", ShortName = "gr" });
                 list.Add(new WeightType { Name = "Kilogramas", ShortName = "kg" });
 
