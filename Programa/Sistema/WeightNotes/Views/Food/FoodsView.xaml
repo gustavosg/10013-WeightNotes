@@ -83,6 +83,11 @@
         <!--Pivot Control-->
         <controls:Pivot Title="WEIGHTNOTES">
             <!--Pivot item one-->
+            <controls:PivotItem Header="Lista">
+                <Grid />
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
             <controls:PivotItem Header="Cadastro">
                 <ScrollViewer>
                     <Grid>
@@ -257,18 +262,15 @@
                 </ScrollViewer>
 
             </controls:PivotItem>
-
-            <!--Pivot item two-->
-            <controls:PivotItem Header="Lista">
-                <Grid />
-            </controls:PivotItem>
         </controls:Pivot>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
-            <shell:ApplicationBarIconButton IconUri="/Images/dark/appbar_button1.png"
-                                            Text="1" />
+            <shell:ApplicationBarIconButton IconUri="Images/dark/appbar.new.rest.png"
+                                            Text="novo" />
+            <shell:ApplicationBarIconButton IconUri="Images/dark/appbar.search.png"
+                                            Text="procurar" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Menu Principal">
 
