@@ -84,7 +84,16 @@
         <controls:Pivot Title="WEIGHTNOTES">
             <!--Pivot item one-->
             <controls:PivotItem Header="Lista">
-                <Grid />
+                <Grid>
+
+                    <silverlightToolkit:LongListSelector ItemsSource="{Binding List}"
+                                                         ListFooter="{Binding}"
+                                                         ListHeader="{Binding}"
+                                                         IsFlatList="False"
+                                                         ShowListFooter="False"
+                                                         ShowListHeader="False" />
+                        
+                </Grid>
             </controls:PivotItem>
 
             <!--Pivot item two-->

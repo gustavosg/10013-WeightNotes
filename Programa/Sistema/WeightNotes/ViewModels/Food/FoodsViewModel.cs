@@ -168,6 +168,18 @@ namespace WeightNotes.ViewModels
             }
         }
 
+        public List<String> List
+        {
+            get
+            {
+                List<String> list = new List<String>();
+                list.Add("A, B");
+                list.Add("C, D");
+
+                return list;
+            }
+        }
+
         #endregion
     }
 
