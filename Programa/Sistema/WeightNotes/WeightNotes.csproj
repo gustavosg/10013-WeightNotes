@@ -70,6 +70,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Food\FoodsViewModel.cs" />
+    <Compile Include="UserControls\ListBoxExtended.xaml.cs">
+      <DependentUpon>ListBoxExtended.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Food\FoodsView.xaml.cs">
       <DependentUpon>FoodsView.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ListBoxExtended.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
