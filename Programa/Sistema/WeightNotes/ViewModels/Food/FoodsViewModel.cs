@@ -20,7 +20,12 @@ namespace WeightNotes.ViewModels
 
         public FoodsViewModel()
         {
+            IList<Test> listTemp = new List<Test>();
 
+            listTemp.Add(new Test() { Id = "1", Name = "First Name" });
+            listTemp.Add(new Test() { Id = "2", Name = "2nd Name" });
+
+            ListItems = listTemp;
         }
 
         ~FoodsViewModel()
@@ -168,15 +173,15 @@ namespace WeightNotes.ViewModels
             }
         }
 
-        public List<String> List
+        private IList<Test> listItems;
+        public IList<Test> ListItems
         {
-            get
-            {
-                List<String> list = new List<String>();
-                list.Add("A, B");
-                list.Add("C, D");
+            get { return listItems; }
 
-                return list;
+            set
+            {
+                listItems = value;
+                OnPropertyChanged("ListItems");
             }
         }
 
@@ -189,13 +194,18 @@ namespace WeightNotes.ViewModels
 
     #endregion
 
-
     #region Auxiliar Class
 
     public class WeightType
     {
         public String Name { get; set; }
         public String ShortName { get; set; }
+    }
+
+    public class Test
+    {
+        public String Id { get; set; }
+        public String Name { get; set; }
     }
 
     #endregion

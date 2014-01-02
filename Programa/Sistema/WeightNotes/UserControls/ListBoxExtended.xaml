@@ -10,22 +10,22 @@
     d:DesignHeight="480" d:DesignWidth="480">
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <!--<ListBox>
+        <ListBox>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <HyperlinkButton Content="{Binding Description}" />
-                        <TextBlock Text="{Binding LongDescription}"/>
+                        <HyperlinkButton Content="Oi" NavigateUri="{Binding NavigationUri}" Grid.Column="0"/>
+                        <TextBlock Text="{Binding Description}" Grid.Column="1"/>
 
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>-->
+        </ListBox>
 
     </Grid>
 </UserControl>
