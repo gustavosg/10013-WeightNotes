@@ -66,10 +66,10 @@ namespace WeightNotes.Views.Food
                 iconButton2.IconUri = new Uri("Images/dark/appbar.feature.search.rest.png", UriKind.Relative);
                 appBar.Buttons.Add(iconButton2);
 
-                //ApplicationBarIconButton iconButton3 = new ApplicationBarIconButton();
-                //iconButton3.Text = "filtrar";
-                //iconButton3.IconUri = new Uri("Images/dark/appbar.filter.png", UriKind.Relative);
-                //appBar.Buttons.Add(iconButton3);
+                ApplicationBarIconButton iconButton3 = new ApplicationBarIconButton();
+                iconButton3.Text = "filtrar";
+                iconButton3.IconUri = new Uri("Images/dark/appbar.filter.png", UriKind.Relative);
+                appBar.Buttons.Add(iconButton3);
 
                 
             }

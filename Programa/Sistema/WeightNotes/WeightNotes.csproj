@@ -131,6 +131,7 @@
     <Content Include="Images\dark\appbar.feature.search.rest.png" />
     <Content Include="Images\dark\appbar.feature.settings.rest.png" />
     <Content Include="Images\dark\appbar.feature.video.rest.png" />
+    <Content Include="Images\dark\appbar.filter.png" />
     <Content Include="Images\dark\appbar.folder.rest.png" />
     <Content Include="Images\dark\appbar.minus.rest.png" />
     <Content Include="Images\dark\appbar.new.rest.png" />
@@ -165,6 +166,7 @@
     <Content Include="Images\light\appbar.feature.search.rest.png" />
     <Content Include="Images\light\appbar.feature.settings.rest.png" />
     <Content Include="Images\light\appbar.feature.video.rest.png" />
+    <Content Include="Images\light\appbar.filter.png" />
     <Content Include="Images\light\appbar.folder.rest.png" />
     <Content Include="Images\light\appbar.minus.rest.png" />
     <Content Include="Images\light\appbar.new.rest.png" />
