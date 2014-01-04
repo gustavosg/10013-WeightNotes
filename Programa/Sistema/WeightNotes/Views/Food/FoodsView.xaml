@@ -16,7 +16,8 @@
                             Foreground="{StaticResource PhoneForegroundBrush}"
                             SupportedOrientations="PortraitOrLandscape"
                             Orientation="Portrait"
-                            shell:SystemTray.IsVisible="True">
+                            shell:SystemTray.IsVisible="True"
+                            x:Name="FoodsViewPage">
     <phone:PhoneApplicationPage.DataContext>
         <vm:FoodsViewModel />
     </phone:PhoneApplicationPage.DataContext>
@@ -35,11 +36,11 @@
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="WEIGHTNOTES" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="cad. alimentos" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="alimentos" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
 
-        <silverlightToolkit:LongListSelector ItemsSource="{Binding ListItems}"  x:Name="Lista" IsFlatList="True" 
+        <silverlightToolkit:LongListSelector ItemsSource="{Binding ListItems}"  IsFlatList="True" 
                                              Grid.Row="1">
             
             <silverlightToolkit:LongListSelector.ItemTemplate>
@@ -49,7 +50,7 @@
                             <ColumnDefinition Width="70"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Id}" />
+                        <CheckBox Click="CheckBox_Clicked"/>
                         <TextBlock Text="{Binding Name}" FontSize="32" 
                                            Grid.Column="1"/>
                     </Grid>
@@ -62,7 +63,7 @@
 
     </Grid>
 
-    <phone:PhoneApplicationPage.ApplicationBar>
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton IconUri="Images/dark/appbar.new.rest.png"
                                             Text="novo" />
@@ -74,6 +75,6 @@
                 </shell:ApplicationBarMenuItem>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 
 </phone:PhoneApplicationPage>

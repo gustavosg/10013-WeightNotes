@@ -139,7 +139,6 @@
     <Content Include="Images\dark\appbar.questionmark.rest.png" />
     <Content Include="Images\dark\appbar.refresh.rest.png" />
     <Content Include="Images\dark\appbar.save.rest.png" />
-    <Content Include="Images\dark\appbar.search.png" />
     <Content Include="Images\dark\appbar.share.rest.png" />
     <Content Include="Images\dark\appbar.stop.rest.png" />
     <Content Include="Images\dark\appbar.sync.rest.png" />
