@@ -1,34 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿
+#region References
+
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using WeightNotes.ViewModels;
+
+#endregion
 
 namespace WeightNotes.Views.Food
 {
     public partial class FoodsView : PhoneApplicationPage
     {
+        #region Fields
+
+        private Int16 qtSelected = 0;
+        private Boolean isFired = false;
+
+        private FoodsViewModel foodsViewModel;
+
+        #endregion
+
+        #region Constructor
+
         public FoodsView()
         {
+            if (foodsViewModel == null)
+                foodsViewModel = new FoodsViewModel();
+
             InitializeComponent();
 
             ChangeApplicationBar(false);
         }
 
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Check if Checkbox was clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBox_Clicked(object sender, RoutedEventArgs e)
         {
-            Boolean value = ((CheckBox)sender).IsChecked == true ? true : false;
+            Boolean isChecked = ((CheckBox)sender).IsChecked == true ? true : false;
 
-            ChangeApplicationBar(value);
+            if (isChecked)
+                qtSelected++;
 
+            else
+                qtSelected--;
+
+            if (isChecked)
+            {
+                if (!isFired)
+                    ChangeApplicationBar(isChecked);
+
+                isFired = true;
+            }
+            else if (qtSelected == 0)
+            {
+                ChangeApplicationBar(false);
+
+                isFired = false;
+            }
         }
 
         /// <summary>
@@ -44,12 +82,13 @@ namespace WeightNotes.Views.Food
                 ApplicationBarIconButton iconButton1 = new ApplicationBarIconButton();
                 iconButton1.Text = "editar";
                 iconButton1.IconUri = new Uri("Images/dark/appbar.edit.rest.png", UriKind.Relative);
-
+                
                 appBar.Buttons.Add(iconButton1);
 
                 ApplicationBarIconButton iconButton2 = new ApplicationBarIconButton();
                 iconButton2.Text = "excluir";
                 iconButton2.IconUri = new Uri("Images/dark/appbar.delete.rest.png", UriKind.Relative);
+                iconButton2.Click += remover_click;
                 appBar.Buttons.Add(iconButton2);
             }
 
@@ -58,6 +97,7 @@ namespace WeightNotes.Views.Food
                 ApplicationBarIconButton iconButton1 = new ApplicationBarIconButton();
                 iconButton1.Text = "novo";
                 iconButton1.IconUri = new Uri("Images/dark/appbar.new.rest.png", UriKind.Relative);
+                iconButton1.Click += novo_Click;
 
                 appBar.Buttons.Add(iconButton1);
 
@@ -71,11 +111,22 @@ namespace WeightNotes.Views.Food
                 iconButton3.IconUri = new Uri("Images/dark/appbar.filter.png", UriKind.Relative);
                 appBar.Buttons.Add(iconButton3);
 
-                
+
             }
 
             FoodsViewPage.ApplicationBar = appBar;
+        }
+
+        void novo_Click(object sender, EventArgs e)
+        {
             
         }
+
+        void remover_click(object sender, EventArgs e)
+        {
+            foodsViewModel.DeleteFood();
+        }
+
+        #endregion
     }
 }

@@ -3,8 +3,11 @@
 
 using System.Windows;
 using System;
+using System.Linq;
 using ViewModelHelpers;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Basis.BaseEntity;
 
 #endregion
 
@@ -20,12 +23,15 @@ namespace WeightNotes.ViewModels
 
         public FoodsViewModel()
         {
-            IList<Test> listTemp = new List<Test>();
+            IList<Food> listTemp = new List<Food>();
 
-            listTemp.Add(new Test() { Id = "1", Name = "First Name" });
-            listTemp.Add(new Test() { Id = "2", Name = "2nd Name" });
+            listTemp.Add(new Food() { Id = "1", Name = "First Name", IsChecked = false });
+            listTemp.Add(new Food() { Id = "2", Name = "Arroz", IsChecked = false });
+            listTemp.Add(new Food() { Id = "3", Name = "Mamão", IsChecked = false });
 
             ListItems = listTemp;
+
+            IsChecked = true;
         }
 
         ~FoodsViewModel()
@@ -48,6 +54,17 @@ namespace WeightNotes.ViewModels
             {
                 name = value;
                 OnPropertyChanged("Name");
+            }
+        }
+
+        private Boolean isChecked;
+        public Boolean IsChecked
+        {
+            get { return isChecked; }
+            set
+            {
+                isChecked = value;
+                OnPropertyChanged("IsChecked");
             }
         }
 
@@ -173,8 +190,8 @@ namespace WeightNotes.ViewModels
             }
         }
 
-        private IList<Test> listItems;
-        public IList<Test> ListItems
+        private IList<Food> listItems;
+        public IList<Food> ListItems
         {
             get { return listItems; }
 
@@ -186,13 +203,27 @@ namespace WeightNotes.ViewModels
         }
 
         #endregion
+
+        #region Commands
+
+
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void DeleteFood()
+        {
+            ListItems.Remove(listItems.LastOrDefault());
+
+            OnPropertyChanged("ListItems");
+        }
+
+        #endregion
     }
-
-    #region Commands
-
-
-
-    #endregion
 
     #region Auxiliar Class
 
@@ -202,10 +233,46 @@ namespace WeightNotes.ViewModels
         public String ShortName { get; set; }
     }
 
-    public class Test
+    public class Food : BaseEntity
     {
-        public String Id { get; set; }
-        public String Name { get; set; }
+        private String id;
+        public String Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
+        private String name;
+        public String Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+
+        private Boolean isChecked;
+        public Boolean IsChecked
+        {
+            get { return isChecked; }
+            set
+            {
+                isChecked = value;
+                OnPropertyChanged("IsChecked");
+            }
+        }
+
+        //public String Id { get; set; }
+
+        //public String Name { get; set; }
+
+        //public Boolean IsChecked { get; set; }
     }
 
     #endregion
