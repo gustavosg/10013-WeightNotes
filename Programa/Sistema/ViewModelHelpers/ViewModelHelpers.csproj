@@ -63,12 +63,6 @@
     <Compile Include="ViewModelBasePageEdit.cs" />
     <Compile Include="ViewModels.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Navigate\NavigationService\NavigationService.csproj">
-      <Project>{9930AA43-CD73-4419-A263-391C62E9F168}</Project>
-      <Name>NavigationService</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

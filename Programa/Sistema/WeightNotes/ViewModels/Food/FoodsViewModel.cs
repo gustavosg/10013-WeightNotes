@@ -3,7 +3,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using NavigationService;
 using ViewModelHelpers;
 using WeightNotes.Model;
 
@@ -21,7 +23,7 @@ namespace WeightNotes.ViewModels
 
         public FoodsViewModel()
         {
-            IList<Food> listTemp = new List<Food>();
+            ObservableCollection<Food> listTemp = new ObservableCollection<Food>();
 
             listTemp.Add(new Food() { Id = "1", Name = "First Name", IsChecked = false });
             listTemp.Add(new Food() { Id = "2", Name = "Arroz", IsChecked = false });
@@ -200,8 +202,8 @@ namespace WeightNotes.ViewModels
             }
         }
 
-        private IList<Food> listItems;
-        public IList<Food> ListItems
+        private ObservableCollection<Food> listItems;
+        public ObservableCollection<Food> ListItems
         {
             get { return listItems; }
 
@@ -224,7 +226,17 @@ namespace WeightNotes.ViewModels
 
         public void Save(String nameFood)
         {
-            ListItems.Add(new Food() { Name = nameFood });
+            Food food = new Food() { Name = nameFood };
+
+            ListItems.Add(food);
+
+            //ObservableCollection<Food> a = (from s in ListItems select s).ToList();
+
+            //ListItems = null;
+
+            //ListItems = a;
+
+            OnPropertyChanged("ListItems");
         }
 
 
