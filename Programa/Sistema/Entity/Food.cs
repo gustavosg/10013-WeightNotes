@@ -8,13 +8,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.ComponentModel;
-using ViewModelHelpers;
 
-namespace Basis.BaseEntity
+namespace WeightNotes.Model
 {
-    public class BaseEntity : NotifyPropertyChanged, IEntity
+    public class Food
     {
-        public virtual Int64 Id { get; private set; }
+
     }
 }

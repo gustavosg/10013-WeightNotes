@@ -119,7 +119,8 @@ namespace WeightNotes.Views.Food
 
         void novo_Click(object sender, EventArgs e)
         {
-            
+            //NavigationService.Navigate(new Uri("FoodsEdit.xaml"));
+            foodsViewModel.Save(txtTest.Text.Trim());
         }
 
         void remover_click(object sender, EventArgs e)

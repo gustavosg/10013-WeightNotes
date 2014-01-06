@@ -1,13 +1,11 @@
 ﻿
 #region References
 
-using System.Windows;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using ViewModelHelpers;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Basis.BaseEntity;
+using WeightNotes.Model;
 
 #endregion
 
@@ -42,6 +40,18 @@ namespace WeightNotes.ViewModels
         #endregion
 
         #region Properties
+
+        private String test;
+        public String Test
+        {
+            get { return test; }
+            set
+            {
+                test = value;
+                OnPropertyChanged("Test");
+            }
+        }
+
 
         private String name;
         public String Name
@@ -212,14 +222,18 @@ namespace WeightNotes.ViewModels
 
         #region Methods
 
+        public void Save(String nameFood)
+        {
+            ListItems.Add(new Food() { Name = nameFood });
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
         public void DeleteFood()
         {
             ListItems.Remove(listItems.LastOrDefault());
-
-            OnPropertyChanged("ListItems");
         }
 
         #endregion
@@ -233,47 +247,7 @@ namespace WeightNotes.ViewModels
         public String ShortName { get; set; }
     }
 
-    public class Food : BaseEntity
-    {
-        private String id;
-        public String Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                OnPropertyChanged("Id");
-            }
-        }
 
-        private String name;
-        public String Name
-        {
-            get { return name; }
-            set
-            {
-                name = value;
-                OnPropertyChanged("Name");
-            }
-        }
-
-        private Boolean isChecked;
-        public Boolean IsChecked
-        {
-            get { return isChecked; }
-            set
-            {
-                isChecked = value;
-                OnPropertyChanged("IsChecked");
-            }
-        }
-
-        //public String Id { get; set; }
-
-        //public String Name { get; set; }
-
-        //public Boolean IsChecked { get; set; }
-    }
 
     #endregion
 
