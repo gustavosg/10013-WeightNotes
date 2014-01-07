@@ -8,11 +8,6 @@ namespace ViewModelHelpers
 {
     public class NotifyPropertyChanged : INotifyPropertyChanged
     {
-        public NotifyPropertyChanged()
-        {
-
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -20,9 +15,8 @@ namespace ViewModelHelpers
             PropertyChangedEventHandler handler = this.PropertyChanged;
 
             if (handler != null)
-            {
                 handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+
         }
     }
 }

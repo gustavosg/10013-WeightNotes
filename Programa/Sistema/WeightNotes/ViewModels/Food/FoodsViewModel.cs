@@ -23,13 +23,14 @@ namespace WeightNotes.ViewModels
 
         public FoodsViewModel()
         {
-            ObservableCollection<Food> listTemp = new ObservableCollection<Food>();
 
-            listTemp.Add(new Food() { Id = "1", Name = "First Name", IsChecked = false });
-            listTemp.Add(new Food() { Id = "2", Name = "Arroz", IsChecked = false });
-            listTemp.Add(new Food() { Id = "3", Name = "Mamão", IsChecked = false });
+            ObservableCollection<Food> list = new ObservableCollection<Food>();
 
-            ListItems = listTemp;
+            list.Add(new Food() { Id = "1", Name = "First Name", IsChecked = false });
+            list.Add(new Food() { Id = "2", Name = "Arroz", IsChecked = false });
+            list.Add(new Food() { Id = "3", Name = "Mamão", IsChecked = false });
+
+            ListItems = list;
 
             IsChecked = true;
         }
@@ -226,17 +227,13 @@ namespace WeightNotes.ViewModels
 
         public void Save(String nameFood)
         {
-            Food food = new Food() { Name = nameFood };
+            ObservableCollection<Food> foodList = new ObservableCollection<Food>();
 
-            ListItems.Add(food);
+            foodList = ListItems;
 
-            //ObservableCollection<Food> a = (from s in ListItems select s).ToList();
+            foodList.Add(new Food() { Name = nameFood });
 
-            //ListItems = null;
-
-            //ListItems = a;
-
-            OnPropertyChanged("ListItems");
+            ListItems = foodList;
         }
 
 
@@ -245,7 +242,7 @@ namespace WeightNotes.ViewModels
         /// </summary>
         public void DeleteFood()
         {
-            ListItems.Remove(listItems.LastOrDefault());
+            ListItems.Remove(ListItems.LastOrDefault());
         }
 
         #endregion
