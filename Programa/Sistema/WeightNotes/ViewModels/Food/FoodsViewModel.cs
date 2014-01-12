@@ -226,9 +226,11 @@ namespace WeightNotes.ViewModels
 
         public void Save(String nameFood)
         {
-            Food food = (new Food() { Name = nameFood });
+            // ToDo @Gustavo: Fix method Save
+            
+            //Food food = (new Food() { Name = nameFood });
 
-            food.AddFood(food);
+            //food.AddFood(food);
         }
 
 

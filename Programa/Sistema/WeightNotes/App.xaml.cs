@@ -12,11 +12,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using WeightNotes.Domain.Model;
 
 namespace WeightNotes
 {
     public partial class App : Application
     {
+        #region Fields
+
+        // specify connection string of data base
+        public static String connectionString = "Data Source=isostore:/WeightNotes.sdf";
+
+        #endregion
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -57,6 +65,28 @@ namespace WeightNotes
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+            // creating data base if doesn't exists
+
+            using (BaseModelDataContext db = new BaseModelDataContext(connectionString))
+            {
+                if (!db.DatabaseExists())
+                {
+                    // Create database
+                    db.CreateDatabase();
+
+                    Genre fruta = new Genre();
+                    fruta.Name = "Frutas";
+
+                    db.Genres.InsertOnSubmit(fruta);
+
+                    db.Foods.InsertOnSubmit(new Food { Name = "Maçã", Genre = fruta });
+
+                    // Save changes
+                    db.SubmitChanges();
+
+                }
+
+            }
         }
 
         // Code to execute when the application is launching (eg, from Start)
