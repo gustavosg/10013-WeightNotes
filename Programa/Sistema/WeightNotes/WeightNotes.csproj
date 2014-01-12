@@ -54,6 +54,7 @@
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="system.data.linq" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -68,7 +69,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Food.cs" />
+    <Compile Include="Domain\Model\Food.cs" />
     <Compile Include="NavigationService\INavigationService.cs" />
     <Compile Include="NavigationService\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

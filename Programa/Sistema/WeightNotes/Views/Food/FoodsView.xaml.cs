@@ -27,10 +27,10 @@ namespace WeightNotes.Views.Food
 
         public FoodsView()
         {
+            InitializeComponent();
+
             if (foodsViewModel == null)
                 foodsViewModel = new FoodsViewModel();
-
-            InitializeComponent();
 
             ChangeApplicationBar(false);
         }
@@ -120,6 +120,7 @@ namespace WeightNotes.Views.Food
         void novo_Click(object sender, EventArgs e)
         {
             //NavigationService.Navigate(new Uri("FoodsEdit.xaml"));
+
             foodsViewModel.Save(txtTest.Text.Trim());
         }
 

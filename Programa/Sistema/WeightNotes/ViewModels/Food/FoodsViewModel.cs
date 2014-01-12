@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using NavigationService;
 using ViewModelHelpers;
-using WeightNotes.Model;
+using WeightNotes.Domain.Model;
 
 #endregion
 
@@ -17,20 +17,19 @@ namespace WeightNotes.ViewModels
     {
         #region Fields
 
+        private static Food food;
+
         #endregion
 
         #region Construtors
 
         public FoodsViewModel()
         {
+            ListItems = new List<Food>();
 
-            ObservableCollection<Food> list = new ObservableCollection<Food>();
-
-            list.Add(new Food() { Id = "1", Name = "First Name", IsChecked = false });
-            list.Add(new Food() { Id = "2", Name = "Arroz", IsChecked = false });
-            list.Add(new Food() { Id = "3", Name = "Mamão", IsChecked = false });
-
-            ListItems = list;
+            ListItems.Add(new Food() { Id = 1, Name = "First Name", IsChecked = false });
+            ListItems.Add(new Food() { Id = 2, Name = "Arroz", IsChecked = false });
+            ListItems.Add(new Food() { Id = 3, Name = "Mamão", IsChecked = false });
 
             IsChecked = true;
         }
@@ -203,8 +202,8 @@ namespace WeightNotes.ViewModels
             }
         }
 
-        private ObservableCollection<Food> listItems;
-        public ObservableCollection<Food> ListItems
+        private IList<Food> listItems;
+        public IList<Food> ListItems
         {
             get { return listItems; }
 
@@ -227,13 +226,9 @@ namespace WeightNotes.ViewModels
 
         public void Save(String nameFood)
         {
-            ObservableCollection<Food> foodList = new ObservableCollection<Food>();
+            Food food = (new Food() { Name = nameFood });
 
-            foodList = ListItems;
-
-            foodList.Add(new Food() { Name = nameFood });
-
-            ListItems = foodList;
+            food.AddFood(food);
         }
 
 
