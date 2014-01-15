@@ -79,7 +79,7 @@ namespace WeightNotes
 
                     db.Genres.InsertOnSubmit(fruta);
 
-                    db.Foods.InsertOnSubmit(new Food { Name = "Maçã", Genre = fruta });
+                    db.Foods.InsertOnSubmit(new Food { Name = "Maçã" });
 
                     // Save changes
                     db.SubmitChanges();

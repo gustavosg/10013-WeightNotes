@@ -4,6 +4,7 @@ using System.Linq;
 using System.Data;
 using System.Data.Linq;
 using System.Text;
+using ViewModelHelpers;
 
 namespace WeightNotes.Domain.Model
 {
@@ -11,8 +12,8 @@ namespace WeightNotes.Domain.Model
     {
         public BaseModelDataContext(String connectionString) : base(connectionString) { }
 
-        public Table<Food> Foods;
-
         public Table<Genre> Genres;
+
+        public Table<Food> Foods;
     }
 }

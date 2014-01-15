@@ -3,18 +3,18 @@
 using System;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
-using System.IO.IsolatedStorage;
 using Basis.BaseEntity;
+using ViewModelHelpers;
 
 #endregion
 
 namespace WeightNotes.Domain.Model
 {
     [Table]
-    public class Food : BaseEntity
+    public class Food : NotifyPropertyChanged
     {
         private Int16 _id;
-        [Column(IsPrimaryKey = true, CanBeNull = false, IsDbGenerated = true, DbType = "INT NOT NULL Identity")]
+        [Column(Name = "Id", IsPrimaryKey = true, CanBeNull = false, IsDbGenerated = true, DbType = "INT NOT NULL Identity", AutoSync = AutoSync.OnInsert)]
         public Int16 Id
         {
             get { return _id; }
@@ -26,7 +26,7 @@ namespace WeightNotes.Domain.Model
         }
 
         private String _name;
-        [Column(CanBeNull = false, DbType = "STRING NOT NULL")]
+        [Column(Name = "Name", CanBeNull = false, DbType = "STRING NOT NULL")]
         public String Name
         {
             get { return _name; }
@@ -38,7 +38,7 @@ namespace WeightNotes.Domain.Model
         }
 
         private Boolean _isChecked;
-        [Column(CanBeNull = false, DbType = "BOOLEAN NOT NULL")]
+        [Column(Name = "IsChecked", CanBeNull = false, DbType = "BOOLEAN NOT NULL")]
         public Boolean IsChecked
         {
             get
@@ -53,7 +53,7 @@ namespace WeightNotes.Domain.Model
         }
 
         // Internal column for the associated Genre ID Value
-        [Column]
+        [Column(Name = "_genreId")]
         internal Int16 _genreId;
 
         // Entity Reference to Genre Table
