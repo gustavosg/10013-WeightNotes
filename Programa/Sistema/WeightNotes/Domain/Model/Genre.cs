@@ -9,11 +9,16 @@ using ViewModelHelpers;
 
 namespace WeightNotes.Domain.Model
 {
-    [Table]
+    [Table(Name="Genre")]
     public class Genre : NotifyPropertyChanged
     {
+        public Genre()
+        {
+            this._foods = new EntitySet<Food>();
+        }
+
         private Int64 _id;
-        [Column(Name = "Id", IsPrimaryKey=true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", AutoSync = AutoSync.OnInsert)]
+        [Column(IsPrimaryKey = true, Name = "Id", IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
         public Int64 Id
         {
             get { return _id; }
@@ -38,7 +43,7 @@ namespace WeightNotes.Domain.Model
         }
 
         private EntitySet<Food> _foods;
-        [Association(Storage = "_foods", OtherKey = "Id", ThisKey = "Id", IsForeignKey=true)]
+        [Association(Storage = "_foods", OtherKey = "_genreId", ThisKey="Id")]
         public EntitySet<Food> Foods
         {
             get { return _foods; }

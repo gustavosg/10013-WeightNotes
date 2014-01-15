@@ -10,9 +10,14 @@ using ViewModelHelpers;
 
 namespace WeightNotes.Domain.Model
 {
-    [Table]
+    [Table(Name = "Food")]
     public class Food : NotifyPropertyChanged
     {
+        public Food()
+        {
+            this._genre = new EntityRef<Genre>();
+        }
+
         private Int16 _id;
         [Column(Name = "Id", IsPrimaryKey = true, CanBeNull = false, IsDbGenerated = true, DbType = "INT NOT NULL Identity", AutoSync = AutoSync.OnInsert)]
         public Int16 Id
@@ -54,13 +59,13 @@ namespace WeightNotes.Domain.Model
 
         // Internal column for the associated Genre ID Value
         [Column(Name = "_genreId")]
-        internal Int16 _genreId;
+        internal String _genreId;
 
         // Entity Reference to Genre Table
         [Column]
         private EntityRef<Genre> _genre;
 
-        [Association(Storage = "_genre", ThisKey = "_genreId", OtherKey = "Id", IsForeignKey = true)]
+        [Association(Storage = "_genre", ThisKey = "_genreId")]
         public Genre Genre
         {
             get { return _genre.Entity; }
