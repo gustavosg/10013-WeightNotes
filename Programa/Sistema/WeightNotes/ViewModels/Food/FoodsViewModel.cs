@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using NavigationService;
 using ViewModelHelpers;
-using WeightNotes.Domain.Model;
+using WeightNotes.Model;
 
 #endregion
 

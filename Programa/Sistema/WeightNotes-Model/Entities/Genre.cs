@@ -1,21 +1,19 @@
-﻿#region References
-
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
-using Basis.BaseEntity;
+using System.Linq;
+using System.Text;
 using ViewModelHelpers;
 
-#endregion
-
-namespace WeightNotes.Domain.Model
+namespace WeightNotes.Model
 {
     [Table]
-    public class Food : NotifyPropertyChanged
+    public class Genre : NotifyPropertyChanged
     {
-        public Food()
+        public Genre()
         {
-            this._genre = new EntityRef<Genre>();
+            this._foods = new EntitySet<Food>();
         }
 
         private int _id;
@@ -43,20 +41,20 @@ namespace WeightNotes.Domain.Model
         }
 
         [Column]
-        protected int _genreId;
+        int _foodsId;
 
-        private EntityRef<Genre> _genre;
-        [Association(Storage="_genre", ThisKey="_genreId", OtherKey="Id")]
-        public Genre Genre
+        
+
+        private EntitySet<Food> _foods;
+        [Association(Storage = "_foods", ThisKey="_foodsId", OtherKey = "Id")]
+        public EntitySet<Food> Foods
         {
-            get { return _genre.Entity; }
+            get { return _foods; }
             set
             {
-                _genre.Entity = value;
-                OnPropertyChanged("Genre");
+                _foods = value;
+                OnPropertyChanged("Foods");
             }
         }
-
-
     }
 }

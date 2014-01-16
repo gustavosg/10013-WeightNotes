@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Linq;
 
-namespace WeightNotes.Domain.Model
+namespace WeightNotes.Model
 {
     public class BaseModelDataContext : DataContext
     {

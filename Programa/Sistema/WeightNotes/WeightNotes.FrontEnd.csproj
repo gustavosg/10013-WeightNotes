@@ -66,19 +66,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Model\BaseModelDataContext.cs" />
-    <Compile Include="Domain\Model\Genre.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Model\Food.cs" />
     <Compile Include="NavigationService\INavigationService.cs" />
     <Compile Include="NavigationService\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Food\FoodsViewModel.cs" />
-    <Compile Include="UserControls\ListBoxExtended.xaml.cs">
-      <DependentUpon>ListBoxExtended.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Food\FoodsEdit.xaml.cs">
       <DependentUpon>FoodsEdit.xaml</DependentUpon>
     </Compile>
@@ -92,10 +86,6 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\ListBoxExtended.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,13 +189,13 @@
     <Resource Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Basis\BaseEntity\BaseEntity.csproj">
-      <Project>{49F81597-6FCB-44C5-ABBD-BA0203FD22C7}</Project>
-      <Name>BaseEntity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ViewModelHelpers\ViewModelHelpers.csproj">
       <Project>{80A418A5-AF73-47E0-A41E-9BF673F84C56}</Project>
       <Name>ViewModelHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeightNotes-Model\WeightNotes.Model.csproj">
+      <Project>{3670DD86-B588-40B7-937A-2B2670C64FF0}</Project>
+      <Name>WeightNotes.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

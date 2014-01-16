@@ -12,7 +12,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using WeightNotes.Domain.Model;
+using WeightNotes.Model;
+using WeightNotes.Model;
 
 namespace WeightNotes
 {
@@ -67,35 +68,37 @@ namespace WeightNotes
 
             // creating data base if doesn't exists
 
-            using (BaseModelDataContext db = new BaseModelDataContext(connectionString))
-            {
-                if (db.DatabaseExists())
-                    db.DeleteDatabase();
+            BaseModelDataContext db = DataBaseHelper.UseConnection();
 
-                if (!db.DatabaseExists())
-                {
-                    try
-                    {
-                        // Create database
-                        db.CreateDatabase();
+            //using (BaseModelDataContext db = new BaseModelDataContext(connectionString))
+            //{
+            //    if (db.DatabaseExists())
+            //        db.DeleteDatabase();
 
-                        Genre fruta = new Genre();
-                        //fruta.Name = "Frutas";
+            //    if (!db.DatabaseExists())
+            //    {
+            //        try
+            //        {
+            //            // Create database
+            //            db.CreateDatabase();
 
-                        db.Genres.InsertOnSubmit(fruta);
+            //            Genre fruta = new Genre();
+            //            //fruta.Name = "Frutas";
 
-                        db.Foods.InsertOnSubmit(new Food { Name = "Maçã", Genre = fruta });
+            //            db.Genres.InsertOnSubmit(fruta);
 
-                        // Save changes
-                        db.SubmitChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
-                    }
-                }
+            //            db.Foods.InsertOnSubmit(new Food { Name = "Maçã", Genre = fruta });
 
-            }
+            //            // Save changes
+            //            db.SubmitChanges();
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            throw ex;
+            //        }
+            //    }
+
+            //}
         }
 
         // Code to execute when the application is launching (eg, from Start)
