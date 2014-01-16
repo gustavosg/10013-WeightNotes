@@ -27,9 +27,9 @@ namespace WeightNotes.ViewModels
         {
             ListItems = new List<Food>();
 
-            ListItems.Add(new Food() { Id = 1, Name = "First Name", IsChecked = false });
-            ListItems.Add(new Food() { Id = 2, Name = "Arroz", IsChecked = false });
-            ListItems.Add(new Food() { Id = 3, Name = "Mamão", IsChecked = false });
+            //ListItems.Add(new Food() { Id = 1, Name = "First Name", IsChecked = false });
+            //ListItems.Add(new Food() { Id = 2, Name = "Arroz", IsChecked = false });
+            //ListItems.Add(new Food() { Id = 3, Name = "Mamão", IsChecked = false });
 
             IsChecked = true;
         }

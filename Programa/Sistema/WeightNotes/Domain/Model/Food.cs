@@ -10,7 +10,7 @@ using ViewModelHelpers;
 
 namespace WeightNotes.Domain.Model
 {
-    [Table(Name = "Food")]
+    [Table]
     public class Food : NotifyPropertyChanged
     {
         public Food()
@@ -18,9 +18,9 @@ namespace WeightNotes.Domain.Model
             this._genre = new EntityRef<Genre>();
         }
 
-        private Int16 _id;
-        [Column(Name = "Id", IsPrimaryKey = true, CanBeNull = false, IsDbGenerated = true, DbType = "INT NOT NULL Identity", AutoSync = AutoSync.OnInsert)]
-        public Int16 Id
+        private int _id;
+        [Column(Name = "Id", CanBeNull = false, DbType = "int not null identity", IsDbGenerated = true, IsPrimaryKey = true, AutoSync = AutoSync.OnInsert)]
+        public int Id
         {
             get { return _id; }
             set
@@ -30,9 +30,9 @@ namespace WeightNotes.Domain.Model
             }
         }
 
-        private String _name;
-        [Column(Name = "Name", CanBeNull = false, DbType = "STRING NOT NULL")]
-        public String Name
+        private string _name;
+        [Column(Name = "Name", CanBeNull = false, DbType = "nchar(50)")]
+        public string Name
         {
             get { return _name; }
             set
@@ -42,30 +42,11 @@ namespace WeightNotes.Domain.Model
             }
         }
 
-        private Boolean _isChecked;
-        [Column(Name = "IsChecked", CanBeNull = false, DbType = "BOOLEAN NOT NULL")]
-        public Boolean IsChecked
-        {
-            get
-            {
-                return _isChecked;
-            }
-            set
-            {
-                _isChecked = value;
-                OnPropertyChanged("IsChecked");
-            }
-        }
-
-        // Internal column for the associated Genre ID Value
-        [Column(Name = "_genreId")]
-        internal String _genreId;
-
-        // Entity Reference to Genre Table
         [Column]
-        private EntityRef<Genre> _genre;
+        protected int _genreId;
 
-        [Association(Storage = "_genre", ThisKey = "_genreId")]
+        private EntityRef<Genre> _genre;
+        [Association(Storage="_genre", ThisKey="_genreId", OtherKey="Id")]
         public Genre Genre
         {
             get { return _genre.Entity; }
@@ -76,9 +57,6 @@ namespace WeightNotes.Domain.Model
             }
         }
 
-        // Version column aids update performance
-        [Column(IsVersion = true)]
-        private Binary _version;
 
     }
 }
