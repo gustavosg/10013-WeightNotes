@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using WeightNotes.Model;
+﻿#region References
+
+using System;
+
+#endregion
 
 namespace WeightNotes.Model
 {
-    public static class DataBaseHelper 
+    public static class DataBaseHelper
     {
 
         private static string _databaseURL = "Data Source=isostore:/weightnotes.sdf";
-
 
         public static BaseModelDataContext UseConnection()
         {
 
             using (BaseModelDataContext db = new BaseModelDataContext(_databaseURL))
             {
+
+#if DEBUG
                 if (db.DatabaseExists())
                     db.DeleteDatabase();
 
+#endif
                 if (!db.DatabaseExists())
                 {
                     try
