@@ -150,7 +150,5 @@ namespace WeightNotes.Model
                 OnPropertyChanged("Genre");
             }
         }
-
-
     }
 }

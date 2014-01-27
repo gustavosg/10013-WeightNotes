@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModelDataContext.cs" />
+    <Compile Include="Entities\Person.cs" />
     <Compile Include="Helper\DataBaseHelper.cs" />
     <Compile Include="Entities\Food.cs" />
     <Compile Include="Entities\Genre.cs" />
