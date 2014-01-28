@@ -58,8 +58,78 @@ namespace WeightNotes_Model.Entities
             }
         }
 
+        private Int64 _weightWatchersCode;
+        [Column(Name = "WeightWatchersCode", CanBeNull = true, DbType = "long null", IsDbGenerated = true)]
+        public Int64 WeightWatchersCode
+        {
+            get { return _weightWatchersCode; }
+            set
+            {
+                _weightWatchersCode = value;
+                OnPropertyChanged("WeightWatchersCode");
+            }
+        }
 
+        private DateTime _dateOfBirth;
+        [Column(Name = "WeightWatchersCode", CanBeNull = false, DbType = "date")]
+        public DateTime DateOfBirth
+        {
+            get { return _dateOfBirth; }
+            set
+            {
+                _dateOfBirth = value;
+                OnPropertyChanged("DateOfBirth");
+            }
+        }
 
+        private Boolean _sexualGender;
+        [Column(Name = "SexualGender", CanBeNull = false, DbType = "bool")]
+        public Boolean SexualGender
+        {
+            get { return _sexualGender; }
+            set
+            {
+                _sexualGender = value;
+                OnPropertyChanged("SexualGender");
+            }
+        }
+
+        private Double _weight;
+        [Column(Name = "Weight", CanBeNull = false, DbType = "float")]
+        public Double Weight
+        {
+            get { return _weight; }
+            set
+            {
+                _weight = value;
+                OnPropertyChanged("Weight");
+            }
+        }
+
+        private Double _height;
+        [Column(Name = "Height", CanBeNull = false, DbType = "float")]
+        public Double Height
+        {
+            get { return _targetHeight; }
+            set
+            {
+                _targetHeight = value;
+                OnPropertyChanged("Height");
+            }
+        }
+
+        private Double _targetHeight;
+        [Column(Name = "TargetHeight", CanBeNull = false, DbType = "float")]
+        public Double TargetHeight
+        {
+            get { return _targetHeight; }
+            set
+            {
+                _targetHeight = value;
+                OnPropertyChanged("Height");
+            }
+        }
+        
 
     }
 }
