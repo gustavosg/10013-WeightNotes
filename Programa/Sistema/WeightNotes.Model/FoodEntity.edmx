@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="FoodEntity.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="FoodEntityTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="FoodEntity" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="FoodEntityContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FoodSet" EntityType="FoodEntity.Food" />
+          <EntitySet Name="GenreSet" EntityType="FoodEntity.Genre" />
+          <AssociationSet Name="GenreFood" Association="FoodEntity.GenreFood">
+            <End Role="Genre" EntitySet="GenreSet" />
+            <End Role="Food" EntitySet="FoodSet" />
+          </AssociationSet>
+          <EntitySet Name="PersonSet" EntityType="FoodEntity.Person" />
+          <EntitySet Name="MealSet" EntityType="FoodEntity.Meal" />
+          <EntitySet Name="MealsSet" EntityType="FoodEntity.Meals" />
+          <AssociationSet Name="MealsMeal" Association="FoodEntity.MealsMeal">
+            <End Role="Meals" EntitySet="MealsSet" />
+            <End Role="Meal" EntitySet="MealSet" />
+          </AssociationSet>
+          <AssociationSet Name="MealFood" Association="FoodEntity.MealFood">
+            <End Role="Meal" EntitySet="MealSet" />
+            <End Role="Food" EntitySet="FoodSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="Double" Name="EnergyValue" Nullable="false" />
+          <Property Type="Double" Name="Weight" Nullable="false" />
+          <Property Type="String" Name="WeightType" Nullable="false" />
+          <Property Type="Double" Name="Carbohydrates" Nullable="false" />
+          <Property Type="Double" Name="Protein" Nullable="false" />
+          <Property Type="Double" Name="Fat" Nullable="false" />
+          <Property Type="Double" Name="Fibers" Nullable="false" />
+          <Property Type="Double" Name="Sodium" Nullable="false" />
+          <NavigationProperty Name="Genre" Relationship="FoodEntity.GenreFood" FromRole="Food" ToRole="Genre" />
+          <NavigationProperty Name="Meal" Relationship="FoodEntity.MealFood" FromRole="Food" ToRole="Meal" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="FoodEntity.GenreFood" FromRole="Genre" ToRole="Food" />
+        </EntityType>
+        <Association Name="GenreFood">
+          <End Type="FoodEntity.Genre" Role="Genre" Multiplicity="1" />
+          <End Type="FoodEntity.Food" Role="Food" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="Int64" Name="WeightWatchersCode" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+          <Property Type="Boolean" Name="SexualGender" Nullable="false" />
+          <Property Type="Double" Name="Weight" Nullable="false" />
+          <Property Type="Double" Name="Height" Nullable="false" />
+          <Property Type="Double" Name="TargetHeight" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Meal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TypeOfMeal" Nullable="false" />
+          <NavigationProperty Name="Meals" Relationship="FoodEntity.MealsMeal" FromRole="Meal" ToRole="Meals" />
+          <NavigationProperty Name="Food" Relationship="FoodEntity.MealFood" FromRole="Meal" ToRole="Food" />
+        </EntityType>
+        <EntityType Name="Meals">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Meal" Relationship="FoodEntity.MealsMeal" FromRole="Meals" ToRole="Meal" />
+        </EntityType>
+        <Association Name="MealsMeal">
+          <End Type="FoodEntity.Meals" Role="Meals" Multiplicity="1" />
+          <End Type="FoodEntity.Meal" Role="Meal" Multiplicity="*" />
+        </Association>
+        <Association Name="MealFood">
+          <End Type="FoodEntity.Meal" Role="Meal" Multiplicity="1" />
+          <End Type="FoodEntity.Food" Role="Food" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="FoodEntity" />
+        <Alias Key="Target" Value="FoodEntity.Store" />
+        <EntityContainerMapping CdmEntityContainer="FoodEntityContainer" StorageEntityContainer="FoodEntityTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

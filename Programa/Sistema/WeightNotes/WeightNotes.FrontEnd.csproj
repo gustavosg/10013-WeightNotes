@@ -193,10 +193,6 @@
       <Project>{80A418A5-AF73-47E0-A41E-9BF673F84C56}</Project>
       <Name>ViewModelHelpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WeightNotes-Model\WeightNotes.Model.csproj">
-      <Project>{3670DD86-B588-40B7-937A-2B2670C64FF0}</Project>
-      <Name>WeightNotes.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
