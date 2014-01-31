@@ -30,6 +30,10 @@
             <End Role="Meal" EntitySet="MealSet" />
             <End Role="Food" EntitySet="FoodSet" />
           </AssociationSet>
+          <AssociationSet Name="PersonMeals" Association="FoodEntity.PersonMeals">
+            <End Role="Person" EntitySet="PersonSet" />
+            <End Role="Meals" EntitySet="MealsSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Food">
           <Key>
@@ -47,6 +51,7 @@
           <Property Type="Double" Name="Sodium" Nullable="false" />
           <NavigationProperty Name="Genre" Relationship="FoodEntity.GenreFood" FromRole="Food" ToRole="Genre" />
           <NavigationProperty Name="Meal" Relationship="FoodEntity.MealFood" FromRole="Food" ToRole="Meal" />
+          <Property Type="Int64" Name="GenreId" Nullable="false" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -59,6 +64,14 @@
         <Association Name="GenreFood">
           <End Type="FoodEntity.Genre" Role="Genre" Multiplicity="1" />
           <End Type="FoodEntity.Food" Role="Food" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Food">
+              <PropertyRef Name="GenreId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <EntityType Name="Person">
           <Key>
@@ -72,6 +85,7 @@
           <Property Type="Double" Name="Weight" Nullable="false" />
           <Property Type="Double" Name="Height" Nullable="false" />
           <Property Type="Double" Name="TargetHeight" Nullable="false" />
+          <NavigationProperty Name="Meals" Relationship="FoodEntity.PersonMeals" FromRole="Person" ToRole="Meals" />
         </EntityType>
         <EntityType Name="Meal">
           <Key>
@@ -81,6 +95,7 @@
           <Property Type="String" Name="TypeOfMeal" Nullable="false" />
           <NavigationProperty Name="Meals" Relationship="FoodEntity.MealsMeal" FromRole="Meal" ToRole="Meals" />
           <NavigationProperty Name="Food" Relationship="FoodEntity.MealFood" FromRole="Meal" ToRole="Food" />
+          <Property Type="Int64" Name="MealsId" Nullable="false" />
         </EntityType>
         <EntityType Name="Meals">
           <Key>
@@ -88,14 +103,27 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Meal" Relationship="FoodEntity.MealsMeal" FromRole="Meals" ToRole="Meal" />
+          <NavigationProperty Name="Person" Relationship="FoodEntity.PersonMeals" FromRole="Meals" ToRole="Person" />
         </EntityType>
         <Association Name="MealsMeal">
           <End Type="FoodEntity.Meals" Role="Meals" Multiplicity="1" />
           <End Type="FoodEntity.Meal" Role="Meal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meals">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Meal">
+              <PropertyRef Name="MealsId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="MealFood">
-          <End Type="FoodEntity.Meal" Role="Meal" Multiplicity="1" />
+          <End Type="FoodEntity.Meal" Role="Meal" Multiplicity="*" />
           <End Type="FoodEntity.Food" Role="Food" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonMeals">
+          <End Type="FoodEntity.Person" Role="Person" Multiplicity="1" />
+          <End Type="FoodEntity.Meals" Role="Meals" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
