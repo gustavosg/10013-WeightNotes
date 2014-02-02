@@ -24,7 +24,7 @@ using ViewModelHelpers;
 
 #endregion
 
-namespace WeightNotes_Model.Entities
+namespace WeightNotes.Model.Entities
 {
     [Table]
     public class Person : NotifyPropertyChanged
@@ -71,7 +71,7 @@ namespace WeightNotes_Model.Entities
         }
 
         private DateTime _dateOfBirth;
-        [Column(Name = "WeightWatchersCode", CanBeNull = false, DbType = "date")]
+        [Column(Name = "DateOfBirth", CanBeNull = false, DbType = "datetime")]
         public DateTime DateOfBirth
         {
             get { return _dateOfBirth; }
@@ -110,10 +110,10 @@ namespace WeightNotes_Model.Entities
         [Column(Name = "Height", CanBeNull = false, DbType = "float")]
         public Double Height
         {
-            get { return _targetHeight; }
+            get { return _height; }
             set
             {
-                _targetHeight = value;
+                _height = value;
                 OnPropertyChanged("Height");
             }
         }

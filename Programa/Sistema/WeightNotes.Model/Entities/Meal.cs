@@ -19,12 +19,14 @@
 #region References
 
 using System;
+using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using ViewModelHelpers;
 
+
 #endregion
 
-namespace WeightNotes_Model.Entities
+namespace WeightNotes.Model.Entities
 {
     [Table]
     public class Meal : NotifyPropertyChanged
@@ -46,13 +48,34 @@ namespace WeightNotes_Model.Entities
             }
         }
 
-        private String[] _mealType;
+        [Column(Name = "_foodId")]
+        protected Int16 _foodId;
 
+        private String[] _mealType;
+        [Column(Name = "MealType", CanBeNull = false, DbType = "String")]
         public String[] MealType
         {
             get { return _mealType; }
-            set { _mealType = value; }
+            set
+            {
+                _mealType = value;
+                OnPropertyChanged("MealType");
+            }
         }
+
+        private Int16 _totalPoints;
+        [Column(Name = "TotalPoints", CanBeNull = true)]
+        public Int16 TotalPoints
+        {
+            get { return _totalPoints; }
+            set
+            {
+                _totalPoints = value;
+                OnPropertyChanged("TotalPoints");
+            }
+        }
+
+        // ToDo Gustavo: Many-To-Many Relationship with Food
 
     }
 }

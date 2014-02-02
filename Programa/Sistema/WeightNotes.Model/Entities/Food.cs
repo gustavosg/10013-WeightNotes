@@ -1,5 +1,7 @@
 ﻿#region References
 
+using System;
+using System.Collections.Generic;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using ViewModelHelpers;
@@ -8,7 +10,7 @@ using ViewModelHelpers;
 
 namespace WeightNotes.Model
 {
-    [Table]
+    [Table(Name = "Food")]
     public class Food : NotifyPropertyChanged
     {
         public Food()
@@ -16,9 +18,9 @@ namespace WeightNotes.Model
             this._genre = new EntityRef<Genre>();
         }
 
-        private int _id;
-        [Column(Name = "Id", CanBeNull = false, DbType = "int not null identity", IsDbGenerated = true, IsPrimaryKey = true, AutoSync = AutoSync.OnInsert)]
-        public int Id
+        private Int64 _id;
+        [Column(Name = "Id", CanBeNull = false, DbType = "long not null identity", IsDbGenerated = true, IsPrimaryKey = true, AutoSync = AutoSync.OnInsert)]
+        public Int64 Id
         {
             get { return _id; }
             set
@@ -28,9 +30,12 @@ namespace WeightNotes.Model
             }
         }
 
-        private string _name;
+        [Column]
+        protected Int64 _genreId;
+
+        private String _name;
         [Column(Name = "Name", CanBeNull = false, DbType = "nchar(50)")]
-        public string Name
+        public String Name
         {
             get { return _name; }
             set
@@ -40,12 +45,9 @@ namespace WeightNotes.Model
             }
         }
 
-        [Column]
-        protected int _genreId;
-
-        private double _energyValue;
-        [Column(Name = "EnergyValue", CanBeNull = true, DbType = "bool")]
-        public double EnergyValue
+        private Double _energyValue;
+        [Column(Name = "EnergyValue", CanBeNull = true, DbType = "float")]
+        public Double EnergyValue
         {
             get { return _energyValue; }
             set
@@ -55,9 +57,9 @@ namespace WeightNotes.Model
             }
         }
 
-        private double _weight;
+        private Double _weight;
         [Column(Name = "Weight", CanBeNull = false, DbType = "double")]
-        public double Weight
+        public Double Weight
         {
             get { return _weight; }
             set
@@ -67,21 +69,21 @@ namespace WeightNotes.Model
             }
         }
 
-        private string[] _weightType;
+        private List<String> _weightType;
         [Column(Name = "WeightType")]
-        public string[] WeightType
+        public List<String> WeightType
         {
             get
             {
-                return new string[]{
+                return new List<String>{
                 "Gramas",
                 "Kilogramas"};
             }
         }
 
-        private double _carbohydrates;
+        private Double _carbohydrates;
         [Column(Name = "Carbohydrates", CanBeNull = true, DbType = "double")]
-        public double Carbohydrates
+        public Double Carbohydrates
         {
             get { return _carbohydrates; }
             set
@@ -91,9 +93,9 @@ namespace WeightNotes.Model
             }
         }
 
-        private double _protein;
+        private Double _protein;
         [Column(Name = "Protein", CanBeNull = true, DbType = "double")]
-        public double Protein
+        public Double Protein
         {
             get { return _protein; }
             set
@@ -103,9 +105,9 @@ namespace WeightNotes.Model
             }
         }
 
-        private double _fat;
+        private Double _fat;
         [Column(Name = "Fat", CanBeNull = true, DbType = "double")]
-        public double Fat
+        public Double Fat
         {
             get { return _fat; }
             set
@@ -115,9 +117,9 @@ namespace WeightNotes.Model
             }
         }
 
-        private double _fibers;
+        private Double _fibers;
         [Column(Name = "Fibers", CanBeNull = true, DbType = "double")]
-        public double Fibers
+        public Double Fibers
         {
             get { return _fibers; }
             set
@@ -127,9 +129,9 @@ namespace WeightNotes.Model
             }
         }
 
-        private double _sodium;
+        private Double _sodium;
         [Column(Name = "Sodium", CanBeNull = true, DbType = "double")]
-        public double Sodium
+        public Double Sodium
         {
             get { return _sodium; }
             set
@@ -138,6 +140,7 @@ namespace WeightNotes.Model
                 OnPropertyChanged("Sodium");
             }
         }
+
         // Associations
         private EntityRef<Genre> _genre;
         [Association(Storage = "_genre", ThisKey = "_genreId", OtherKey = "Id")]

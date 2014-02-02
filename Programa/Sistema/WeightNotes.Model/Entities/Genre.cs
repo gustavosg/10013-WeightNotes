@@ -28,9 +28,9 @@ namespace WeightNotes.Model
             }
         }
 
-        private string _name;
+        private String _name;
         [Column(Name = "Name", CanBeNull = false, DbType = "nchar(50)")]
-        public string Name
+        public String Name
         {
             get { return _name; }
             set
@@ -41,12 +41,10 @@ namespace WeightNotes.Model
         }
 
         [Column]
-        int _foodsId;
-
-        
+        protected Int64 _foodId;
 
         private EntitySet<Food> _foods;
-        [Association(Storage = "_foods", ThisKey="_foodsId", OtherKey = "Id")]
+        [Association(Storage = "_foods", ThisKey = "_foodId", OtherKey = "Id")]
         public EntitySet<Food> Foods
         {
             get { return _foods; }
