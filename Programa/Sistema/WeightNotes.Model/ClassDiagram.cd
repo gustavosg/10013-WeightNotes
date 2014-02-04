@@ -8,16 +8,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="WeightNotes.Model.Genre">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACMAAIAAAAAAABAABAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACMAAAAAAAAAABAABAAAQAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\Genre.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WeightNotes.Model.Entities.Meal">
     <Position X="11.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAICBAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAICBAACAAAAAAAAAABAAAAAEAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Entities\Meal.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -1,6 +1,8 @@
 ﻿#region References
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 #endregion
 
@@ -29,12 +31,22 @@ namespace WeightNotes.Model
                         // Create database
                         db.CreateDatabase();
 
-                        Genre fruta = new Genre();
-                        //fruta.Name = "Frutas";
+                        IList<Genre> listaGeneros = new List<Genre>();
+                        listaGeneros.Add(new Genre { Name = "Frutas" });
+                        listaGeneros.Add(new Genre { Name = "Legumes" });
+                        listaGeneros.Add(new Genre { Name = "Verduras" });
+                        listaGeneros.Add(new Genre { Name = "Carnes" });
+                        listaGeneros.Add(new Genre { Name = "Cereais" });
+                        listaGeneros.Add(new Genre { Name = "Doces" });
 
-                        db.Genres.InsertOnSubmit(fruta);
+                        listaGeneros = listaGeneros.OrderBy(s => s.Name).ToList<Genre>();
 
-                        db.Foods.InsertOnSubmit(new Food { Name = "Maçã", Genre = fruta });
+                        Genre generos = new Genre();
+                        generos.Name = "Frutas";
+
+                        db.Genres.InsertOnSubmit(generos);
+
+                        db.Foods.InsertOnSubmit(new Food { Name = "Maçã", Genre = generos });
 
                         // Save changes
                         db.SubmitChanges();
