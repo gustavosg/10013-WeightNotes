@@ -34,9 +34,9 @@ namespace WeightNotes.Model.Entities
 
         }
 
-        private Int16 _id;
-        [Column(Name = "Id", CanBeNull = false, DbType = "int not null identity", IsDbGenerated = true, IsPrimaryKey = true, AutoSync = AutoSync.OnInsert)]
-        public Int16 Id
+        private Int64 _id;
+        [Column(Name = "Id", CanBeNull = false, DbType = "long not null identity", IsDbGenerated = true, IsPrimaryKey = true, AutoSync = AutoSync.OnInsert)]
+        public Int64 Id
         {
             get { return _id; }
             set

@@ -26,7 +26,7 @@ using ViewModelHelpers;
 
 #endregion
 
-namespace WeightNotes.Model.Entities
+namespace WeightNotes.Model
 {
     [Table]
     public class Meal : NotifyPropertyChanged

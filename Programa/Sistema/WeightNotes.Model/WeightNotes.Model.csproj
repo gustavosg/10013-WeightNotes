@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModelDataContext.cs" />
+    <Compile Include="Entities\FoodsMealsAssociation.cs" />
     <Compile Include="Entities\Meal.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Helper\DataBaseHelper.cs" />

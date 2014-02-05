@@ -3,7 +3,7 @@
   <Class Name="WeightNotes.Model.Food">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEADIgAAgAIAAAAAAApAwBQAADACAIAAiAIAAAAEAAQ=</HashCode>
+      <HashCode>AMADIgAAgAIAAAAAAApAwBQACDACAIAQiAIAAAAEAAQ=</HashCode>
       <FileName>Entities\Food.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -14,7 +14,7 @@
       <FileName>Entities\Genre.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WeightNotes.Model.Entities.Meal">
+  <Class Name="WeightNotes.Model.Meal">
     <Position X="11.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAICBAACAAAAAAAAAABAAAAAEAAAAAAAAAAAAIAAAAA=</HashCode>

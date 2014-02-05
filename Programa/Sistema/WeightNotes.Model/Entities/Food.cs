@@ -33,6 +33,9 @@ namespace WeightNotes.Model
         [Column]
         protected Int64 _genreId;
 
+        [Column]
+        protected Int64 _mealId;
+
         private String _name;
         [Column(Name = "Name", CanBeNull = false, DbType = "nchar(50)")]
         public String Name
@@ -142,6 +145,8 @@ namespace WeightNotes.Model
         }
 
         // Associations
+
+        // Many-to-One
         private EntityRef<Genre> _genre;
         [Association(Storage = "_genre", ThisKey = "_genreId", OtherKey = "Id")]
         public Genre Genre
@@ -153,5 +158,20 @@ namespace WeightNotes.Model
                 OnPropertyChanged("Genre");
             }
         }
+
+        // Many-To-Many
+
+        private EntityRef<Meal> _meal;
+        [Association(Storage = "_meal", ThisKey = "_mealId", OtherKey = "MealId")]
+        public Meal Meal
+        {
+            get { return _meal.Entity; }
+            set
+            {
+                _meal.Entity = value;
+                OnPropertyChanged("Meal");
+            }
+        }
+
     }
 }
